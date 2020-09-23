@@ -153,7 +153,7 @@ curl -skX GET "https://YOUR-IP-HERE:9200/pcap-singles?pretty" -H "Authorization:
 ```
 
 6. create an API key for **reading** documents (retrieving data) (recommend using a dedicated account for reading data)
-- via Dev Tools
+- via the Dev Tools
 ```
 POST /_security/api_key
 {
