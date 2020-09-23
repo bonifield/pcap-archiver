@@ -37,6 +37,7 @@ pcap-fetch.py 192.168.99.100 8.8.8.8 ipv4
 ```
 
 ## To Do
+- setup script to automate the steps below
 - Use the Elasticsearch libraries
 - Add cronjob and tcpdump/netsniff-ng helper notes
 - Threading and better read methods than "top-to-bottom"
