@@ -51,63 +51,14 @@ pcap-fetch.py 192.168.99.100 8.8.8.8 ipv4
 curl -u elastic -skX PUT "https://YOUR-IP-HERE:9200/pcap-singles?pretty"
 ```
 
-2. define a mapping for the index
+2. define a mapping for the index (note you need the full path for -d, or relative paths like "./")
 ```
-curl -u elastic -skX PUT "https://YOUR-IP-HERE:9200/pcap-singles/_mapping?pretty" -H "Content-Type: application/json" -d @pcap-singles.mapping
+curl -u elastic -skX PUT "https://YOUR-IP-HERE:9200/pcap-singles/_mapping?pretty" -H "Content-Type: application/json" -d @/full/path/to/pcap-singles.mapping
 ```
 _or_ via the Dev Tools in Kibana if the above command returns an error
 ```
 PUT pcap-singles/_mapping
-{
-	"properties":{
-		"destination":{
-			"properties":{
-				"address":{"type":"ip"},
-				"ip":{"type":"ip"},
-				"port":{"type":"long"},
-				"mac":{"type":"text"}
-			}
-		},
-		"file":{
-			"properties":{
-				"name":{"type":"text"}
-			}
-		},
-		"icmp":{
-			"properties":{
-				"code":{"type":"text"},
-				"type":{"type":"text"}
-			}
-		},
-		"is_vlan":{"type":"text"},
-		"network":{
-			"properties":{
-				"transport":{"type":"text"},
-				"type":{"type":"text"},
-				"version":{"type":"short"},
-				"vlan":{
-					"properties":{
-						"id":{"type":"long"}
-					}
-				}
-			}
-		},
-		"packet":{
-			"properties":{
-				"encoded":{"type":"text"},
-				"time":{"type":"date"}
-			}
-		},
-		"source":{
-			"properties":{
-				"address":{"type":"ip"},
-				"ip":{"type":"ip"},
-				"port":{"type":"long"},
-				"mac":{"type":"text"}
-			}
-		}
-	}
-}
+...contents of pcap-singles.mapping file here...
 ```
 
 3. create an API key for **publishing** documents (storing data) (recommend using a dedicated account for sending data)
