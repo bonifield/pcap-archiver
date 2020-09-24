@@ -63,7 +63,7 @@ PUT pcap-singles/_mapping
 
 3. create an API key for **publishing** documents (storing data) (recommend using a dedicated account for sending data)
 ```
-curl -u elastic -skX POST "https://YOUR-IP-HERE:9200/_security/api_key" -H 'Content-Type: application/json' -d'{"name": "pcap-singles-publish_00001", "role_descriptors": {"filebeat_writer": {"cluster": ["monitor", "read_ilm"], "index": [{"names": ["pcap-*"], "privileges": ["view_index_metadata", "create_doc"]}]}}}'
+curl -u elastic -skX POST "https://YOUR-IP-HERE:9200/_security/api_key?pretty" -H 'Content-Type: application/json' -d'{"name": "pcap-singles-publish_00001", "role_descriptors": {"filebeat_writer": {"cluster": ["monitor", "read_ilm"], "index": [{"names": ["pcap-*"], "privileges": ["view_index_metadata", "create_doc"]}]}}}'
 ```
 _or_ via the Dev Tools in Kibana
 ```
@@ -104,7 +104,10 @@ curl -skX GET "https://YOUR-IP-HERE:9200/pcap-singles?pretty" -H "Authorization:
 ```
 
 6. create an API key for **reading** documents (retrieving data) (recommend using a dedicated account for reading data)
-- via the Dev Tools
+```
+curl -u elastic -skX POST "https://YOUR-IP-HERE:9200/_security/api_key?pretty" -H 'Content-Type: application/json' -d'{"name": "pcap-singles-read_00001", "role_descriptors": {"filebeat_writer": {"cluster": ["monitor", "read_ilm"], "index": [{"names": ["pcap-*"],"privileges": ["view_index_metadata", "read"]}]}}}'
+```
+_or_ via the Dev Tools in Kibana
 ```
 POST /_security/api_key
 {
@@ -146,4 +149,8 @@ curl -skX GET "https://YOUR-IP-HERE:9200/pcap-singles?pretty" -H "Authorization:
 - delete all data in the ```pcap-singles``` index
 ```
 curl -u elastic -skX POST "https://YOUR-IP-HERE:9200/pcap-singles/_delete_by_query" -H "Content-Type: application/json" -d '{"query" : {"match_all" : {}}}'
+```
+- delete the entire ```pcap-singles``` index
+```
+curl -u elastic -skX DELETE "https://YOUR-IP-HERE:9200/pcap-singles/"
 ```
