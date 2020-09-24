@@ -13,16 +13,21 @@ Your small to medium-sized business has started using a network tap or SPAN to c
 The 500 MB ingest limit per day with the free version of Splunk is severely limiting, whereas the free version of Elasticsearch has no such limit.
 
 ## Files in this Project
+- pcap-archiver-setup.sh
+	- semi-automated script that walks through setting up the index, and optionally, destroying it
 - pcap-upload.py
-	- reads packets from a PCAP, creates a JSON structure for metadata and raw packet data, then uploads the JSON to Elasticsearch
-	- this script creates and deletes temporary JSON files
+	- uploads a JSON structure containing the packet and appropriate metadata to Elasticsearch (note - creates and deletes temporary JSON files)
 - pcap-fetch.py
-	- retrieves PCAP from Elasticsearch according to various criteria
+	- retrieves PCAP from Elasticsearch according to various criteria available in the uploaded metadata
 - pcap-singles.mapping
 	- mapping file for the ```pcap-singles``` index
 
 ## Usage
-First, edit each script with the appropriate Elasticsearch host address, index name, and API keys (read and publish, respectively).
+First, run the setup script, then edit each Python script with the appropriate Elasticsearch host address, index name, and API keys (read and publish, respectively).
+- setup
+```
+/pcap-archiver-setup.sh
+```
 - storing data (ideally via cronjob on rotating netsniff-ng or tcpdump files)
 ```
 pcap-upload.py file.pcap
@@ -37,15 +42,16 @@ pcap-fetch.py 192.168.99.100 8.8.8.8 ipv4
 ```
 
 ## To Do
-- setup script to automate the steps below
-- more metadata fields for easier searching and fetching
-- Use the Elasticsearch libraries
-- Add cronjob and tcpdump/netsniff-ng helper notes
-- Threading and better read methods than "top-to-bottom"
-- Flask front-end for PCAP retrieval, both querying and downloading the resulting file
-- Dockerize the whole thing? Mount the container at your PCAP folder and relax?
+- [x] setup script
+- [ ] more metadata fields for easier searching and fetching
+- [ ] Use the Elasticsearch libraries
+- [ ] Add cronjob and tcpdump/netsniff-ng helper notes
+- [ ] Threading and better read methods than "top-to-bottom"
+- [ ] Flask front-end for PCAP retrieval, both querying and downloading the resulting file
+- [ ] Dockerize the whole thing? Mount the container at your PCAP folder and relax?
 
 ## Elasticsearch Setup Steps (Configure the Index, Mapping, and APIs)
+### use the [setup script](https://github.com/bonifield/pcap-archiver/blob/master/pcap-archiver-setup.sh) OR follow the steps below
 1. make the ```pcap-singles``` index inside Elasticsearch
 ```
 curl -u elastic -skX PUT "https://YOUR-IP-HERE:9200/pcap-singles?pretty"
