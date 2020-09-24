@@ -26,7 +26,7 @@ The 500 MB ingest limit per day with the free version of Splunk is severely limi
 First, run the setup script, then edit each Python script with the appropriate Elasticsearch host address, index name, and API keys (read and publish, respectively).
 - setup
 ```
-/pcap-archiver-setup.sh
+pcap-archiver-setup.sh
 ```
 - storing data (ideally via cronjob on rotating netsniff-ng or tcpdump files)
 ```
