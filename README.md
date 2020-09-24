@@ -43,6 +43,9 @@ pcap-fetch.py 192.168.99.100 8.8.8.8 ipv4
 
 ## To Do
 - [x] setup script
+- [ ] output path options for PCAP fetch, vs using the present working directory
+- [ ] "or" statements for fetching PCAP
+- [ ] time range selection statements for fetching PCAP
 - [ ] more metadata fields for easier searching and fetching
 - [ ] Use the Elasticsearch libraries
 - [ ] Add cronjob and tcpdump/netsniff-ng helper notes
