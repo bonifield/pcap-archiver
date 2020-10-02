@@ -46,7 +46,7 @@ pcap-fetch.py 192.168.99.100 8.8.8.8 ipv4
 - [ ] **"or" statements for fetching PCAP**
 - [ ] **time range selection statements for fetching PCAP**
 - [ ] **more metadata fields for easier searching and fetching**
-- [ ] **Add cronjob and tcpdump/netsniff-ng helper notes**
+- [ ] **add cronjob and tcpdump/netsniff-ng helper notes**
 - [ ] output path options for PCAP fetch, vs using the present working directory
 - [ ] rename processed PCAPs to flag for either deletion, compression, or other actions
 - [ ] option to preserve JSON logs in compressed format, vs deleting them and keeping PCAPs
