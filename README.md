@@ -43,14 +43,14 @@ pcap-fetch.py 192.168.99.100 8.8.8.8 ipv4
 
 ## To Do
 - [x] setup script
+- [ ] **"or" statements for fetching PCAP**
+- [ ] **time range selection statements for fetching PCAP**
+- [ ] **more metadata fields for easier searching and fetching**
+- [ ] **Add cronjob and tcpdump/netsniff-ng helper notes**
 - [ ] output path options for PCAP fetch, vs using the present working directory
-- [ ] "or" statements for fetching PCAP
-- [ ] time range selection statements for fetching PCAP
-- [ ] more metadata fields for easier searching and fetching
 - [ ] rename processed PCAPs to flag for either deletion, compression, or other actions
 - [ ] option to preserve JSON logs in compressed format, vs deleting them and keeping PCAPs
 - [ ] Use the Elasticsearch libraries
-- [ ] Add cronjob and tcpdump/netsniff-ng helper notes
 - [ ] Threading and better read methods than "top-to-bottom"
 - [ ] Flask front-end for PCAP retrieval, both querying and downloading the resulting file
 - [ ] Dockerize the whole thing? Mount the container at your PCAP folder and relax?
