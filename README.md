@@ -24,6 +24,9 @@ The 500 MB ingest limit per day with the free version of Splunk is severely limi
 - pcap-singles.mapping
 	- mapping file for the ```pcap-singles``` index
 
+## Requirements
+Scapy and Requests
+
 ## Usage
 First, run the setup script, then edit each Python script with the appropriate Elasticsearch host address, index name, and API keys (read and publish, respectively).
 - setup
