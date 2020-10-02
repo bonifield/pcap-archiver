@@ -18,7 +18,9 @@ The 500 MB ingest limit per day with the free version of Splunk is severely limi
 - pcap-upload.py
 	- uploads a JSON structure containing the packet and appropriate metadata to Elasticsearch (note - creates and deletes temporary JSON files)
 - pcap-fetch.py
-	- retrieves PCAP from Elasticsearch according to various criteria available in the uploaded metadata
+	- retrieves PCAP from Elasticsearch using AND, OR, and time-based selectors
+- OLD_pcap-fetch.py
+	- retrieves PCAP from Elasticsearch in a simpler format, but only uses AND selectors
 - pcap-singles.mapping
 	- mapping file for the ```pcap-singles``` index
 
