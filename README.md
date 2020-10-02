@@ -32,7 +32,15 @@ pcap-archiver-setup.sh
 ```
 pcap-upload.py file.pcap
 ```
-- retrieving PCAP
+- retrieving PCAP (with the new script)
+```
+pcap-fetch.py --and 173.194.191.104
+pcap-fetch.py --and "192.168.99.100 173.194.191.104"
+pcap-fetch.py --and "192.168.99.100 173.194.191.104 ipv4"
+pcap-fetch.py --and "192.168.99.100 173.194.191.104" --or "57530 57711"
+pcap-fetch.py --and "192.168.99.100 173.194.191.104" --or "57530 57711" --earliest 2020-01-01T00:00:00 --latest 2020-02-02T23:59:59
+```
+- retrieving PCAP (with the old script, only supports "and" conditions)
 ```
 pcap-fetch.py 192.168.99.100 8.8.8.8
 pcap-fetch.py 192.168.99.100 53
@@ -43,8 +51,8 @@ pcap-fetch.py 192.168.99.100 8.8.8.8 ipv4
 
 ## To Do
 - [x] setup script
-- [ ] **"or" statements for fetching PCAP**
-- [ ] **time range selection statements for fetching PCAP**
+- [x] "or" statements for fetching PCAP (added 02 October 2020)
+- [x] time range selection statements for fetching PCAP (added 02 October 2020)
 - [ ] **more metadata fields for easier searching and fetching**
 - [ ] **add cronjob and tcpdump/netsniff-ng helper notes**
 - [ ] output path options for PCAP fetch, vs using the present working directory
