@@ -51,7 +51,7 @@ heady = {
 }
 
 
-# returns up to 10k packets, the maxium supported by Elasticsearch
+# returns up to 10k packets, the maximum supported by Elasticsearch
 q = {
 	"from": 0,
 	"size": 10000,
