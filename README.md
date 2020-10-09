@@ -14,7 +14,7 @@ The 500 MB ingest limit per day with the free version of Splunk is severely limi
 
 ## Files in this Project
 - pcap-archiver-setup.sh
-	- semi-automated script that walks through setting up the index, and optionally, destroying it
+	- semi-automated script that walks through setting up the index and APIs, and optionally destroying the index
 - pcap-upload.py
 	- uploads a JSON structure containing the packet and appropriate metadata to Elasticsearch (note - creates and deletes temporary JSON files)
 - pcap-fetch.py
@@ -59,6 +59,7 @@ pcap-fetch.py 192.168.99.100 8.8.8.8 ipv4
 - [x] "or" statements for fetching PCAP (added 02 October 2020)
 - [x] time range selection statements for fetching PCAP (added 02 October 2020)
 - [ ] **more metadata fields for easier searching and fetching**
+- [ ] **process more types of packets (just packet.Ether now)**
 - [ ] **add cronjob and tcpdump/netsniff-ng helper notes**
 - [ ] output path options for PCAP fetch, vs using the present working directory
 - [ ] rename processed PCAPs to flag for either deletion, compression, or other actions
