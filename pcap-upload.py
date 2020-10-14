@@ -217,10 +217,8 @@ def processPacket(pkt):
 		try:
 			j = json.dumps(d, sort_keys="True")
 			# specify op_type when using api keys to authenticate
-			#pprint(d)
 			return('{"index":{"_index":"pcap-singles", "op_type":"create"}}\n'+j+'\n')
 			# troubleshooting here
-#			pprint(d)
 #			pkt.show()
 #			ls(pkt)
 		except Exception as e:
