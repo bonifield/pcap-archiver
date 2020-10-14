@@ -2,48 +2,102 @@
 	"properties":{
 		"destination":{
 			"properties":{
-				"address":{"type":"ip"},
+				"address":{"type":"keyword"},
+				"domain":{"type":"keyword"},
 				"ip":{"type":"ip"},
 				"port":{"type":"long"},
-				"mac":{"type":"text"}
+				"mac":{"type":"keyword"}
 			}
 		},
 		"file":{
 			"properties":{
-				"name":{"type":"text"}
+				"name":{"type":"keyword"}
+			}
+		},
+		"http":{
+			"properties":{
+				"header":{
+					"properties":{
+						"content_type":{"type":"keyword"},
+						"forwarded":{"type":"keyword"},
+						"location":{"type":"keyword"},
+						"status_code_phrase":{"type":"keyword"},
+						"server":{"type":"keyword"},
+						"via":{"type":"keyword"},
+						"x-forwarded-for":{"type":"keyword"},
+						"x-forwarded-host":{"type":"keyword"},
+						"x-forwarded-proto":{"type":"keyword"},
+						"x-powered-by":{"type":"keyword"}
+					}
+				},
+				"request":{
+					"properties":{
+						"method":{"type":"keyword"},
+						"referrer":{"type":"keyword"}
+					}
+				},
+				"response":{
+					"properties":{
+						"status_code":{"type":"long"}
+					}
+				},
+				"version":{"type":"keyword"}
 			}
 		},
 		"icmp":{
 			"properties":{
-				"code":{"type":"text"},
-				"type":{"type":"text"}
+				"code":{"type":"byte"},
+				"type":{"type":"byte"}
 			}
 		},
+		"is_http":{"type":"text"},
+		"is_icmp":{"type":"text"},
+		"is_tls":{"type":"text"},
 		"is_vlan":{"type":"text"},
 		"network":{
 			"properties":{
-				"transport":{"type":"text"},
-				"type":{"type":"text"},
+				"transport":{"type":"keyword"},
+				"type":{"type":"keyword"},
 				"version":{"type":"short"},
 				"vlan":{
 					"properties":{
-						"id":{"type":"long"}
+						"id":{"type":"keyword"}
 					}
 				}
 			}
 		},
 		"packet":{
 			"properties":{
-				"encoded":{"type":"text"},
+				"encoded":{"type":"keyword"},
 				"time":{"type":"date"}
 			}
 		},
 		"source":{
 			"properties":{
-				"address":{"type":"ip"},
+				"address":{"type":"keyword"},
 				"ip":{"type":"ip"},
 				"port":{"type":"long"},
-				"mac":{"type":"text"}
+				"mac":{"type":"keyword"}
+			}
+		},
+		"tls":{
+			"properties":{
+				"client":{
+					"properties":{
+						"server_name":{"type":"keyword"}
+					}
+				}
+			}
+		},
+		"url":{
+			"properties":{
+				"domain":{"type":"keyword"},
+				"path":{"type":"keyword"}
+			}
+		},
+		"user_agent":{
+			"properties":{
+				"original":{"type":"keyword"}
 			}
 		}
 	}
