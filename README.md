@@ -5,6 +5,7 @@ store and retrieve packets using Elasticsearch
 - Short Version: Stores captured network packets in Elasticsearch, which are then retrievable on-demand via script.
 - Long Version: Reads PCAP files and creates a JSON representation of each raw packet, along with basic metadata about the packet, which then gets stored in an Elasticsearch database cluster. Once packets are stored, retrieve them on-demand according to various criteria via simple script.
 - **Although the main scripts use APIs, setup steps 1-6 use the built-in "elastic" user; use dedicated accounts to create these APIs in production environments.**
+- **Certain HTTP fields in the mapping to not align to the Elastic Common Schema. These custom fields are nested under "http.header.[]"**
 
 ## Use Case Scenario
 Your small to medium-sized business has started using a network tap or SPAN to capture PCAP files and other logs. You are using Tcpdump or Netsniff-ng to generate rotating PCAP files, but this does not make for easy access into the files for analysis. By using this tool to store the raw packets from each PCAP file in Elasticsearch, you can then purge the PCAP files as they rotate, and allow your analysts or administrators easy access to packets as they determine the need to see them. Querying Elasticsearch via this tool to retrieve packets is faster and easier than working with the rotating PCAPs directly.
