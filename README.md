@@ -63,9 +63,10 @@ pcap-fetch.py 192.168.99.100 8.8.8.8 ipv4
 - [x] setup script
 - [x] "or" statements for fetching PCAP (added 02 October 2020)
 - [x] time range selection statements for fetching PCAP (added 02 October 2020)
-- [ ] **more metadata fields for easier searching and fetching**
-- [ ] **process more types of packets (just packet.Ether now)**
-- [ ] **add cronjob and tcpdump/netsniff-ng helper notes**
+- [x] more metadata fields for easier searching and fetching (added many new web-related fields 14 October 2020)
+- [x] ability to query for PCAP based on strings (added 14 October 2020)
+- [ ] process more types of packets (just packet.Ether now)
+- [ ] add cronjob and tcpdump/netsniff-ng helper notes
 - [ ] output path options for PCAP fetch, vs using the present working directory
 - [ ] rename processed PCAPs to flag for either deletion, compression, or other actions
 - [ ] option to preserve JSON logs in compressed format, vs deleting them and keeping PCAPs
