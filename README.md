@@ -19,7 +19,7 @@ The 500 MB ingest limit per day with the free version of Splunk is severely limi
 - pcap-upload.py
 	- uploads a JSON structure containing the packet and appropriate metadata to Elasticsearch (note - creates and deletes temporary JSON files)
 - pcap-fetch.py
-	- retrieves PCAP from Elasticsearch using AND, OR, and time-based selectors
+	- retrieves PCAP from Elasticsearch using AND, OR, STRING, and time-based selectors
 - OLD_pcap-fetch.py
 	- retrieves PCAP from Elasticsearch in a simpler format, but only uses AND selectors
 - pcap-singles.mapping
@@ -34,11 +34,13 @@ First, run the setup script, then edit each Python script with the appropriate E
 ```
 pcap-archiver-setup.sh
 ```
-- storing data (ideally via cronjob on rotating netsniff-ng or tcpdump files)
+- storing data (ideally via cronjob on rotating netsniff-ng or tcpdump files): **pcap-upload.py**
 ```
 pcap-upload.py file.pcap
 ```
-- retrieving PCAP (with the new script)
+- retrieving PCAP (with the new script): **pcap-fetch.py**
+	- ```--and``` and ```--or``` are split on spaces
+	- ```--string``` will preserve spaces and gets rolled into an implied ```--and``` argument; wrap in double-quotes
 ```
 pcap-fetch.py --and 173.194.191.104
 pcap-fetch.py --and "192.168.99.100 173.194.191.104"
@@ -48,7 +50,7 @@ pcap-fetch.py --and "192.168.99.100 173.194.191.104" --or "57530 57711" --earlie
 pcap-fetch.py --string "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:80.0) Gecko/20100101 Firefox/80.0"
 pcap-fetch.py --string "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:80.0) Gecko/20100101 Firefox/80.0" --and 57784
 ```
-- retrieving PCAP (with the old script, only supports "and" conditions where each argument is space-separated)
+- retrieving PCAP (with the old script, only supports "and" conditions where each argument is space-separated): **OLD_pcap-fetch.py**
 ```
 pcap-fetch.py 192.168.99.100 8.8.8.8
 pcap-fetch.py 192.168.99.100 53
