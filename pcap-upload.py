@@ -192,7 +192,7 @@ def processPacket(pkt):
 				if hres.Reason_Phrase:
 					d['http']['header']['status_code_phrase'] = bytes(hres.Reason_Phrase).decode("utf-8")
 				if hres.Content_Type:
-					d['http']['header'][''] = bytes(hres.Content_Type).decode("utf-8")
+					d['http']['header']['content_type'] = bytes(hres.Content_Type).decode("utf-8")
 				if hres.Server:
 					d['http']['header']['server'] = bytes(hres.Server).decode("utf-8")
 				if hres.Http_Version:
