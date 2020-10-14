@@ -44,6 +44,8 @@ pcap-fetch.py --and "192.168.99.100 173.194.191.104"
 pcap-fetch.py --and "192.168.99.100 173.194.191.104 ipv4"
 pcap-fetch.py --and "192.168.99.100 173.194.191.104" --or "57530 57711"
 pcap-fetch.py --and "192.168.99.100 173.194.191.104" --or "57530 57711" --earliest 2020-01-01T00:00:00 --latest 2020-02-02T23:59:59
+pcap-fetch.py --string '"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:80.0) Gecko/20100101 Firefox/80.0"'
+pcap-fetch.py --string '"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:80.0) Gecko/20100101 Firefox/80.0"' --and 57784
 ```
 - retrieving PCAP (with the old script, only supports "and" conditions)
 ```
