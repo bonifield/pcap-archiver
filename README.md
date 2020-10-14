@@ -47,7 +47,7 @@ pcap-fetch.py --and "192.168.99.100 173.194.191.104" --or "57530 57711" --earlie
 pcap-fetch.py --string "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:80.0) Gecko/20100101 Firefox/80.0"
 pcap-fetch.py --string "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:80.0) Gecko/20100101 Firefox/80.0" --and 57784
 ```
-- retrieving PCAP (with the old script, only supports "and" conditions)
+- retrieving PCAP (with the old script, only supports "and" conditions where each argument is space-separated)
 ```
 pcap-fetch.py 192.168.99.100 8.8.8.8
 pcap-fetch.py 192.168.99.100 53
