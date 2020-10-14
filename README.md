@@ -173,9 +173,9 @@ curl -skX GET "https://YOUR-IP-HERE:9200/pcap-singles?pretty" -H "Authorization:
 ## Helpful Commands
 - delete all data in the ```pcap-singles``` index
 ```
-curl -u elastic -skX POST "https://YOUR-IP-HERE:9200/pcap-singles/_delete_by_query" -H "Content-Type: application/json" -d '{"query" : {"match_all" : {}}}'
+curl -u elastic -skX POST "https://YOUR-IP-HERE:9200/pcap-singles/_delete_by_query?pretty" -H "Content-Type: application/json" -d '{"query" : {"match_all" : {}}}'
 ```
 - delete the entire ```pcap-singles``` index
 ```
-curl -u elastic -skX DELETE "https://YOUR-IP-HERE:9200/pcap-singles/"
+curl -u elastic -skX DELETE "https://YOUR-IP-HERE:9200/pcap-singles?pretty"
 ```
