@@ -176,6 +176,8 @@ YOUR-B64-READ-KEY-HERE==
 curl -skX GET "https://YOUR-IP-HERE:9200/pcap-singles?pretty" -H "Authorization: ApiKey YOUR-B64-READ-KEY-HERE=="
 ```
 
+9. edit ```pcap-upload.py``` and ```pcap-fetch.py``` with the appropriate IP and API information where indicated
+
 ## Helpful Commands
 - delete all data in the ```pcap-singles``` index
 ```
